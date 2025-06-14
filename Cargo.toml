@@ -1,0 +1,28 @@
+[package]
+name = "exomizer"
+description = "Exomizer raw de-/crunching library"
+version = "0.5.0"
+keywords = ["exomizer", "compression", "no_std"]
+categories = ["compression", "no-std"]
+edition = "2024"
+rust-version = "1.85.1"
+license = "Zlib"
+
+[dependencies]
+enum-flags = "0.4.0"
+thiserror = "2.0.12"
+
+[features]
+default = ["alloc", "clz"]
+alloc = []
+std = ["alloc"]
+clz = []
+
+[[example]]
+name = "compare"
+required-features = ["std"]
+
+[package.metadata.docs.rs]
+all-features = true
+# enable unstable features in the documentation
+rustdoc-args = ["--cfg", "docsrs"]
